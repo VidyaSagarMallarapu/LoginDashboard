@@ -1,0 +1,12 @@
+
+.mat-sidenav-content {
+  font-size: 200%;
+  text-align: center;
+}
+.textCo {
+  color: green;
+  flex: 1 1 auto;
+}
+table {
+  width: 100%;
+}

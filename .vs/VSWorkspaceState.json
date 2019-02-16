@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\dashboard",
+    "\\src\\app\\login",
+    "\\src\\app\\page-not-found"
+  ],
+  "SelectedNode": "\\src\\app\\dashboard\\dashboard.component.ts",
+  "PreviewInSolutionExplorer": false
+}

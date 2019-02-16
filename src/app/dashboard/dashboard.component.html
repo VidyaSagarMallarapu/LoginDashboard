@@ -1,0 +1,108 @@
+
+
+<mat-toolbar color="primary">
+
+  <span>
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </span>
+
+  <span class="example-spacer"></span>
+
+  <span class="example-spacer">
+    <a>  Logged in as {{id}} </a>
+
+  </span>
+
+  <a mat-button *ngIf="! authenticated" (click)="logout()">LogIn</a>
+  <a mat-button *ngIf=" authenticated" (click)="logout()">Logout</a>
+
+</mat-toolbar>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="dash()">
+    <mat-icon>dashboard</mat-icon>
+    <span> Dashboard</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>voicemail</mat-icon>
+    <span>Use APIs </span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>contact_support</mat-icon>
+    <span>Support</span>
+  </button>
+</mat-menu>
+<div *ngIf="dashboard">
+  <mat-grid-list cols="3" rowHeight="3:1">
+    <mat-grid-tile *ngFor="let book of books">
+      <mat-card>
+
+
+        <mat-card-title>
+          {{book.id}}
+        </mat-card-title>
+        <mat-card-footer>
+          {{book.name}}
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <br /><br />
+  <mat-toolbar>
+    <p class="textCo">
+      Organization Overview
+    </p>
+
+  </mat-toolbar>
+  <br /><br />
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="expdate">
+      <th mat-header-cell *matHeaderCellDef> expdate </th>
+      <td mat-cell *matCellDef="let element"> {{element.expdate}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="engIndex">
+      <th mat-header-cell *matHeaderCellDef> eng Index </th>
+      <td mat-cell *matCellDef="let element"> {{element.engIndex}} </td>
+    </ng-container>
+    <ng-container matColumnDef="needIndex">
+      <th mat-header-cell *matHeaderCellDef> need Index </th>
+      <td mat-cell *matCellDef="let element"> {{element.needIndex}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="industrySlot">
+      <th mat-header-cell *matHeaderCellDef> industry Slot </th>
+      <td mat-cell *matCellDef="let element"> {{element.industrySlot}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+</div>
